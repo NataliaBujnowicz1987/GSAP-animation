@@ -4,7 +4,6 @@ import { ReactComponent as Scene } from './scene.svg';
 import gsap from 'gsap';
 
 function App() {
-  // useRef allows use svg
   const wrapper = useRef(null);
 
   useEffect(() => {
@@ -17,7 +16,7 @@ function App() {
     gsap.set([girl, ...rain.children, umbrella], { autoAlpha: 0 });
     gsap.set(umbrella, { transformOrigin: '50% 100%' });
 
-    const tl = gsap.timeline({ defaults: { ease: 'power2.inOut' } })
+    const tl = gsap.timeline({ delay: 3, defaults: { ease: 'power2.inOut' } })
 
     tl.fromTo(girl, { x: '+=300' }, { duration: 1, x: '-=300', autoAlpha: 1 })
       .to(rain.children, { duration: 1, autoAlpha: 1, stagger: 0.1 }, '+=1')
